@@ -7,4 +7,3 @@ add merge.
 test stash.
 1.
 2.
-test 提交description
