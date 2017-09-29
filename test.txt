@@ -3,5 +3,9 @@
 git push origin test.
 created bug branch.
 bug1 branch. 
+<<<<<<< HEAD
 bug branch.
 test.
+=======
+bug branch.
+>>>>>>> 285e490b94d2bb3b875b74ef4012ed4801012f95
