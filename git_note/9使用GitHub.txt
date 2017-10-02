@@ -1,0 +1,17 @@
+1、what：a、免费的远程仓库；
+
+         b、一个开源协作社区，通过GitHub，既可以让别人参与你的开源项目，也可以参与别人的开源项目；
+		 
+2、how：a、fork；
+
+        b、git clone git@github.com:6XiaoXin6/bootstrap；
+		
+		c、pull request；（脑图）
+
+3、extend：a、比如人气极高的bootstrap项目，这是一个非常强大的CSS框架，你可以访问它的项目主页https://github.com/twbs/bootstrap；
+
+           b、可以推送pull request给官方仓库来贡献代码；
+		   
+		   c、自己拥有Fork后的仓库的读写权限；
+		   
+		   d、在GitHub上，可以任意Fork开源仓库；

@@ -1,0 +1,79 @@
+一、序言
+1、extend：a、不同机器如何通过指令互相之间clone；？
+
+           b、在一台电脑上怎么克隆多个仓库；？
+		   
+		   c、在几台电脑之间模拟’中央服务器‘；？
+		   
+		   d、本地Git仓库和GitHub仓库之间的传输是通过SSH加密；
+		   
+		   e、Linux命令：如何模糊和精准地查询一个文件；？解：find . -iname '*.txt'
+		   
+		   f、ssh：提供安全性的协议，弥补网络中的漏洞，更安全；
+		   
+		   g、注意秘钥的生成路径；
+		   
+		   h、如何更换git config --global user.email'your email' 以及如何局部设置；？
+		   
+		   i、搭一个Git服务器；？
+		   
+		   j、自己GitHub上的东西如何不让别人看见：？解：交点保护费
+		   
+		   k、ssh key：一台电脑对应一个key；？解：一个电脑对应一个ssh key，但又神马决定这个ssh key的？
+		   
+		   l、一个GitHub账号可以添加多个ssh key；
+		   
+		   m、randomart image；？
+		   
+		   n、sha1、sha256；？
+		   
+		   o、私匙id_rsa有神马作用；？
+		   
+		   p、git status：a、Your branch is up-to-date with 'origin/master'.
+		   
+		                  b、Your branch is ahead of 'origin/master' by 3 commits.
+						  
+						  c、behind
+		   
+2、配置远程仓库：a、登录GitHub官网，注册一个GitHub账号；创建容器
+
+                 b、创建SSH Key：ssh-keygen -t rsa -C'your email'（大写C），在.ssh目录下生成私钥（id_rsa）和公钥（id_rsa.pub）；创建东西，命令参数意义？
+				 
+				 c、配置GitHub：Account settings->SSH Keys->Add SSH Key->填写Title和id_rsa.pub->Add Key；把创建的东西放进去
+				 
+
+二、本地仓库添加到远程仓库
+
+1、how：a、在GitHub上创建一个新的仓库：Create a new repo；
+
+        b、git remote add origin git@github.com:6XiaoXin6/learngit；
+		
+		c、git push -u origin master？或git push origin master；分支可以改吗？
+
+2、extend：a、远程库的名字就是origin，这是Git默认的叫法，也可以改成别的？，但是origin这个名字一看就知道是远程库；？
+
+           b、SSH警告：当你第一次使用Git的clone或者push命令连接GitHub时，会得到一个警告；
+		   
+		   c、如果你实在担心有人冒充GitHub服务器？，输入yes前可以对照GitHub的RSA Key的指纹信息是否与SSH连接给出的一致；？
+		   
+		   
+三、从远程库克隆到本地
+
+1、how：a、在GitHub上新建一个仓库；
+
+        b、在本地新建一个工作区；
+		
+		c、git clone git@github.com:6XiaoXin6/learngit.git；git@github.com:6XiaoXin6/learngit？
+
+2、extend：a、勾选Initialize this repository with a README，这样GitHub会自动为我们创建一个README.md文件；
+
+           b、https://github.com/michaelliao/gitskills.git这样的地址？。实际上，Git支持多种协议，默认的git://使用ssh？，但也可以使用https等其他协议？；
+		   
+		   c、使用https除了速度慢以外，还有个最大的麻烦是每次推送都必须输入口令，但是在某些只开放http端口的公司内部就无法使用ssh协议而只能用https；
+		   
+		   d、Git支持多种协议，包括https，但通过ssh支持的原生git协议速度最快；
+		   
+		   f、如何查看git config --global user.email'your email'；？
+		   
+		   g、如何删除远程仓库；？解：仓库-setting
+				

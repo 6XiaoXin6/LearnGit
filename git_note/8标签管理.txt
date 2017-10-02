@@ -1,0 +1,43 @@
+一、序言
+
+1、what：其实它就是指向某个commit的指针
+
+2、extend：a、但是分支可以移动，标签不能移动；
+
+           b、创建和删除标签都是瞬间完成的；
+		   
+		   c、因为创建的标签都只存储在本地，不会自动推送到远程。所以，打错的标签可以在本地安全删除；
+		   
+3、background：方便，容易记住，tag就是一个让人容易记住的有意义的名字，它跟某个commit绑在一起；
+
+
+二、创建标签
+
+1、how：a、切换到需要打tag的branch上：git checkout master；
+
+        b、创建tag：1、默认打tag：git tag v0.9；
+
+                    2、指定commit_id打tag：git tag v1.0 commit_id；
+					
+					3、带description打tag：git tag -a v1.1 -m'description' commit_id；-a指定标签名，-m指定说明文字；
+					
+					4、带rsa_id打tag：git tag -s v1.2 -m'description' commit_id；-s用私钥签名一个标签，用PGP签名标签
+					
+		c、查询tag：1、git tag：查看所有标签；
+		
+		            2、git show v1.0：查看指定标签；
+					
+					
+三、操作标签
+
+1、how：a、删除tag：1、删除未push到远程仓库的tag：git tag -d v1.0；
+
+                    2、删除已push到远程仓库的tag：a、git tag -d v1.0；
+					
+					                              b、git push origin :refs/tags/v1.0；
+												  
+		b、push tag到远程仓库：a、单个推送：git push origin v1.0；
+		
+		                       b、全部推送：git push origin --tags；
+							   
+    注：对标签的任何操作前，首先要确定是在哪个分支上；

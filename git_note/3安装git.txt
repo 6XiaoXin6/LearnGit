@@ -1,0 +1,37 @@
+1、how：1、各个系统的安装方法：a、Linux：1、新Debian或Ubuntu Linux：sudo apt-get install git；？
+
+                                         2、老Debian或Ubuntu Linux：sudo apt-get install git-core；？
+				  
+				                         3、其他Linux：a、./config；？
+				  
+				                                       b、make；
+								
+							                           c、sudo make install；
+								
+	                           b、Mac OS X：方法一：安装homebrew，通过homebrew来安装git；？
+		
+		                                    方法二：从AppStore安装Xcode，Xcode来安装git（“Xcode”->“Preferences”=》“Downloads”=》“Command Line Tools”）；
+					 
+	                           c、Windows：msysgit是Windows版的Git，从https://git-for-windows.github.io下载；
+		
+		2、配置：a、git config --global user.name'your name'；
+					
+				 b、git config --global user.email'your email'；
+		
+2、extend：a、Windows下要使用很多Linux/Unix的工具时，需要Cygwin这样的模拟环境；
+
+           b、模拟环境和Git都打包好了，名叫msysgit，，只需要下载一个单独的exe安装程序；
+		   
+		   c、git config命令的--global参数，用了这个参数，表示你这台机器上所有的Git仓库都会使用这个配置；
+		   
+		   d、当然也可以对某个仓库指定不同的用户名和Email地址；？如何查看config和如何改变（是否就是重新输指令git config）
+		   
+		   e、命令行更新git的指令；？是否可以类比python等？
+		   
+		   f、如果有人故意冒充别人怎么办？这个不必担心，首先我们相信大家都是善良无知的群众，其次，真的有冒充的也是有办法可查的；？
+		   
+		   g、输入：python 后，如何退出；
+		   
+		   h、--system：系统级、--global：用户级、空（默认）：目录级；
+		   
+		   

@@ -1,0 +1,155 @@
+1、Git手册的帮助文档？+
+
+2、充要？+
+
+   A=>B：充,B=>A：要，：充要
+
+3、Microsoft开发记事本的团队使用了一个非常弱智的行为来保存UTF-8编码的文件，他们自作聪明地在每个文件开头添加了0xefbbbf（十六进制）的字符？
+
+4、嫌麻烦不想输入-m "xxx"行不行？实在不想输入说明的童鞋请自行Google，我不告诉你这个参数。？
+
+5、每提交一个新版本，实际上Git就会把它们自动串成一条时间线。如果使用可视化工具查看Git历史，就可以更清楚地看到提交历史的时间线？+
+
+6、Spring？+
+
+   以解决企业应用开发的复杂性为目的开源框架。
+   
+7、世界各地的志愿者把源代码文件通过diff的方式发给Linus？+
+
+8、微软自己也有一个集中式版本控制系统叫VSS，集成在Visual Studio中。由于其反人类的设计，连微软自己都不好意思用了？
+
+9、命令行'-'、'--'、' '、' -- '的区别？
+
+   sudo apt-get install git；
+   
+   git config --global user.name "Your Name"
+
+10、./config，make，sudo make install这几个命令安装就好了？
+
+11、Linux软件格式？+
+
+    tar.gz（源码包）、rpm
+	
+12、当然也可以对某个仓库指定不同的用户名和Email地址？+
+
+13、如何删在本地和远程库的除指定的commit_id？
+
+14、git commit -am？+
+
+15、SHA1？
+
+16、如果使用可视化工具查看Git历史，就可以更清楚地看到提交历史的时间线？+
+
+17、cat与vi的区别？+
+
+18、为啥服务器往往都搭建在Linux系统上？+
+
+19、如何更改git的config？
+
+20、sudo apt-get install git 与git config --global user.name"小新"
+
+21、cmder和git bash有什么区别吗?
+    都是模拟器
+    1、windows     linux
+	2、            针对git
+	
+22、Git、GitHub、GitLab的区别与联系？+
+    版本控制系统工具   用于给用户创建远程git仓储，实现代码等托管的网站   GitHub的增强版
+	
+23、廖老师您好，请问Git客户端与github客户端有什么区别啊？+
+
+24、gitHub和gitChina他俩之间的区别？+
+    YouTube和youku的区别
+	
+25、喜欢Git的用户也可以使用百度效率云提供的Git代码托管服务https://xiaolvyun.baidu.com？+
+
+26、git diff顾名思义就是查看difference，显示的格式正是Unix通用的diff格式？+
+
+27、如果你不想让别人看到Git库，有两个办法，一个是交点保护费，让GitHub把公开的仓库变成私有的，这样别人就看不见了（不可读更不可写）？+
+    
+	好像都可以设置特定的用户才能看。
+	
+28、
+
+29、通常，合并分支时，如果可能，Git会用Fast forward模式，但这种模式下，删除分支后，会丢掉分支信息。？
+
+30、查看全部标签详细信息？
+   
+     git show 
+	 
+31、git tag -d --tags？
+
+32、PGP签名？
+
+33、.git目录？
+
+34、自定义命令错了，怎么修改？+
+
+35、git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"？
+
+36、自定义全局命令的配置文件在哪里？+
+
+37、假设你已经有sudo权限的用户账号？
+
+38、通过几条简单的apt命令就可以完成安装？
+
+39、本地repository可以关联多个远程repository嘛？+
+
+1、C:\ProgramData\Git\config、C:\Users\Administrator\.gitconfig、C:\Users\Administrator\git\learngit\.git\config？
+                              --global 对当前用户的配置config    只对当前仓库的config  
+
+2、Windows平台上安装软件的原理？
+
+3、gitk？
+
+4、cmder？
+
+默认的CMD是不支持cat命令的，不过window你可以尝试一下cmder这个强大的cmd工具，它自带git，而且支持部分linux的指令
+
+5、github、码云、百度效率云、gitlab
+
+6、
+
+7、RHEL7？
+
+8、
+
+9、
+
+10、
+
+11、commit后stage就没有了？
+
+12、
+				
+13、
+									
+14、
+	
+	
+										
+15、
+
+16、
+
+17、
+
+18、
+
+19、
+
+20、git源码？
+
+21、
+
+22、git clone git@github.com:6XiaoXin6/learngit.git 与 git clone git@github.com:6XiaoXin6/learngit 的区别；？
+
+    git remote add origin git@github.com:6XiaoXin6/learngit.git 与 git remote add origin git@github.com:6XiaoXin6/learngit 的区别；？
+	
+23、一台电脑如何安装多系统？
+
+24、
+	
+25、 
+	 
+26、

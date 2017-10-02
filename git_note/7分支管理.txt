@@ -1,0 +1,145 @@
+一、序言
+
+1、what：类似于平行宇宙；
+
+2、why：SVN创建和切换分支很慢，但Git的分支是与众不同的，无论创建、切换和删除分支，Git在1秒钟之内就能完成；
+
+
+二、创建与合并分支
+
+1、how：a、创建分支：1、git checkout -b dev；
+
+                     2、git branch dev；
+					 
+					 3、git branch -b dev origin/dev；在本地创建和远程分支对应的分支
+
+        b、查询分支：git branch；
+
+        c、切换分支：1、git checkout dev；
+
+                     2、git checkout -b dev；		
+					 
+		d、合并分支：a、两种方法：1、fast forward模式merge：git merge dev；
+		
+		                          2、--no-ff模式merge：git merge --no-ff -m'description' edv
+								  
+				     b、两种方法的区别：1、Fast forward模式，但这种模式下，删除分支后，会丢掉分支信息，而--no-ff不会；
+					 
+					                    2、合并原理不同；（脑图）
+		
+		e、删除分支：git branch -d dev；
+		
+2、extend：a、每次提交，Git都把它们串成一条时间线，这条时间线就是一个分支；
+
+           b、HEAD->分支->commit；（脑图）
+		   
+		   c、git merge dev：Fast-forward信息，Git告诉我们，这次合并是“快进模式”；
+		   
+
+三、解决冲突
+
+1、why：a、单一时间线进行merge，不会有conflict；
+
+        b、多个时间线进行merge。如果commit有不同，则会有conflict；
+
+2、how：a、git merge feature1；
+
+        b、与开放人员商量修改冲突文件；
+		
+		c、add、commit；
+		
+		d、删除分支：git branch -d feature1；
+
+3、extend：a、fast-forward：单一时间线多个commit进行merge；？
+
+           b、多个时间线的不同commit进行merge；？
+		   
+		   c、git log --graph --pretty=oneline --abbrev-commit；？不同写法的不同以及各种参数的意义？
+		   
+		   d、第二种方法merge多个commit；？
+		   
+		   f、如果要强制禁用Fast forward模式，Git就会在merge时生成一个新的commit，这样，从分支历史上就可以看出分支信息；
+		   
+		   
+四、分支管理策略
+
+1、what：a、master、dev、feature、bug......；
+
+
+五、bug分支
+
+1、background：当你接到一个修复一个代号101的bug的任务时，很自然地，你想创建一个分支issue-101来修复它，但是，当前正在dev上进行的工作还没有提交，也不能轻易提交；
+
+2、how：a、git stash；
+
+        b、创建分支：git checkout -b  issue-101：
+		
+		c、解决bug；
+		
+		d、merge branch；
+		
+		e、git stash pop；恢复并删除stash的内容
+		
+3、extend：a、git stash list；
+
+           b、git stash apply；恢复stash内容
+		   
+		   c、git stash drop；删除stash内容
+		
+
+六、feature分支
+
+1、how：a、过程：master、dev、feature
+
+        b、如果要丢弃一个没有被合并过的分支，可以通过git branch -D <name>强行删除；
+		
+		
+七、多人协助
+
+1、how：a、A：git push origin dev；
+
+        b、B：git clone git@github.com:6XiaoXin6/learngit.git并git checkout -b dev origin/dev；
+		
+		c、add、commit；
+		
+		d、修改了相同文件，B：push origin dev；push失败（相同文件的版本不同）；
+		
+		e、git pull；提示;有conflict
+		
+		f、解决冲突：修改、add、commit；
+		
+		g、git push origin dev；
+		
+2、extend：a、本地.git默认对应远程origin；是否可以更改对应的远程仓库？
+
+           b、git remote -v；更改权限？
+		   
+		   c、当你的小伙伴从远程库clone时，默认情况下，你的小伙伴只能看到本地的master分支；？
+		   
+		   d、git clone git@github.com:6XiaoXin6/learngit.git：只会clone master到本地；
+		   
+		   e、git remote、gitremote -v；
+		   
+		   f、git branch --set-upstream dev origin/dev；提示“no tracking information”
+		   
+		   g、git push origin dev：如果远程仓库存在dev就推送到dev，否则，远程仓库会自动创建dev并推送到dev上；
+		   
+		   h、巧用git push --help；
+		   
+		   i、git checkout -b dev origin/dev和git checkout -b dev的区别；？
+		   
+		   j、本地分支名与远程库分支名要一致，否者无法推送；
+		   
+		   h、rebase：1、git checkout mywork
+		    
+			          2、git rebase origin
+					  
+					  3、解决冲突
+					  
+					  4、git add file 和 git commit -m'description'
+					  
+					  5、git rebase --continue 
+
+                      6、git rebase --abort:在任何时候，你可以用--abort参数来终止rebase的行动，并且"mywork" 分支会回到rebase开始前的状态；
+					  
+		   i、如何查看远程分支：git branch -a；

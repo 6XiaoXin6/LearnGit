@@ -1,0 +1,17 @@
+1、why：难、支离破碎；
+
+2、how：a、面对初学者、起步低；
+
+        b、实用性强；
+		
+		c、文字+图片；
+
+3、extend：a、《Git手册》的帮助文档；
+
+           b、巧用命令行：git、python和help（list）、 java等；？
+		   
+		   c、《Spring 2.0核心技术与最佳实践》；？
+		   
+		   d、廖雪峰GitHub：https://github.com/michaelliao；？
+		   
+		   e、网站底部；？

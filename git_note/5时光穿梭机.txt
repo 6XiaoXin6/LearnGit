@@ -1,0 +1,183 @@
+一、序言
+1、git status：a、why：显示仓库当前的状态；
+
+               b、how：a、Changes not staged for commit；理解他们的实质；
+			   
+			           b、Changes to be committed；
+					   
+					   c、nothing to commit, working tree clean；
+					   
+					   d、Untracked files；
+
+2、git diff：a、why：用于查看filename.txt最近一次详细的修改，只能用于查看没有被commit的文件，stage与working directory；
+
+             b、how：1、git status；先查看哪些文件被修改过；
+						  
+				     2、git diff filename.txt；查看详细修改了哪些；  
+
+3、extend：a、深度理解git diff：git diff test.txt、git diff HEAD -- test.txt、git diff -- test.txt、git diff --cached
+
+                                git diff -- test.txt = git diff test.txt：stage与工作区作比较；
+
+								git diff --cached：branch与stage作比较；
+
+								git diff HEAD -- test.txt：branch与工作区作比较；其中HEAD是可变参数？
+
+
+								注：这三种所带参数：1、不带参数：当前整个版本所有文件的比较；（默认）
+
+                                                    2、带文件名：指定当前不同区间文件（working directory、stage/index、branch）的比较；
+					
+					                                3、带commit_id；指定当前不同区间文件与指定commit_id的比较；
+													
+													4、脑图；
+					
+	                            注：一个是时间上的比较，一个是空间上的比较，一个整体与局部的比较；					 
+
+					 
+二、版本回退
+1、extend：a、commit id：一个SHA1计算出来的一个非常大的十六进制数字；
+
+           b、使用可视化工具查看Git历史；？
+
+           c、git log --pretty=oneline：从上往下对应从新到旧；从旧往新？
+
+2、how：a、git log可查：git reset --hard HEAD^、git reset --hard HEAD~100、git reset --hard commit id；
+
+        b、git reflog可查：同上；  	
+
+3、what：每提交一个新版本，实际上Git就会把它们自动串成一条时间线，当你回退版本的时候，Git仅仅是把HEAD从指向append GPL，然后顺便把工作区的文件更新了(错误)；(脑图)？		
+
+
+三、工作区和暂存区
+1、extend：a、Git和其他版本控制系统如SVN的一个不同之处就是有暂存区的概念；
+
+           b、add、commit、reset等命令的实质；
+		   
+		   c、一次性add的指令；？解：可以一次add多个文件
+		   
+2、what：a、工作区=Working Directory=learngit；（脑图记忆法）
+
+         b、暂存区=stage=index=.git/index；
+		 
+		 c、版本库=仓库=repository=.git；
+		 
+		 
+四、管理修改
+1、extend：a、如何让working directory、stage和branch之间的文件不同；（add commit、改 add、改 ）
+
+           b、git diff test.txt 与 git diff HEAD -- test.txt（注有个空格）的区别；
+		   
+		   c、git diff HEAD --test.txt：HEAD只能写到前面；
+		   
+		   d、git commit -m'description'：description不能有all和commit；
+		   
+		   e、每次修改，如果不add到暂存区，那就不会加入到commit中；
+		   
+		   f、git commit -m'未修改再提交一次'；commit前会判断当前branch的当前版本的文件是否一致，一致则不提交；
+		   
+		   g、git commit ：是全部文件copy给branch还是只是把改变的copy给branch；？
+		   
+2、how：Git跟踪并管理的是修改，而非文件；
+
+
+五、撤销修改
+1、how：a、git add readme.txt 前：git checkout -- readme.txt 
+
+        b、git add readme.txt 后，git commit -m'add<x<commit' 前：1、git add readme.txt 未修改readme.txt：a、git reset HEAD readme.txt、git reset readme.txt；撤销单个文件的修改
+		
+		                                                                                                     git reset HEAD             git reset           ；撤销整个文件的修改
+																											 
+																											 git reset -hard
+
+																											 git reset -mixed
+
+																											 git reset -soft	
+		
+		                                                                                                  b、git checkout -- readme.txt 
+
+                                                                  2、git add readme.txt 已修改readme.txt：a、git checkout -- readme.txt
+																  
+																                                          b、git reset HEAD readme.txt、git reset readme.txt
+																										  
+																										  c、git checkout -- readme.txt
+		
+		c、git commit -'commit<x<push'后，git push orign master前：git reset HEAD^
+		
+2、what：a、git checkout -- readme.txt：1、把file在working directory的修改撤销；
+
+                                        2、撤销修改就回到添加到暂存区后的状态；
+
+         b、git reset HEAD readme.txt：把暂存区的修改撤销掉（unstage），重新放回工作区；
+		 
+		 c、git reset HEAD^:版本回退； 
+		 
+3、extend：a、Linux上把一个路径设置成一个变量等；？
+
+           b、git checkout branch 和 git checkout -- readme.txt的区别；
+		   
+		   c、git reset HEAD readme.txt 与 git reset HEAD^的区别；
+		   
+		   e、只想撤销某些文件；？git reset HEAD readme.txt test.txt、git checkout -- readme.txt test.txt
+		   
+		   f、git add file一次性添加多个文件：？解：可以，git add test2.txt test3.txt
+		   
+		   g、巧用git status；
+		   
+		   h、网址、Linux与Windows路径地址的不同（/、\）；
+		   
+		   i、巧用git reset --hard HEAD^、git reset --soft HEAD^、git reset --mixed HEAD^、git reset --hard HEAD进行撤销；
+		   
+		   j、有关git checkout三种撤销修改的方法：1、git checkout test.txt：在根目录learngit下可用，但注意与切换分支的区别，path；
+
+                                                  2、git checkout test\test.txt：在子目录下的文件可用，path；
+										
+									              3、git checkout -- test.txt
+											
+			 注：git checkout会判断一下，判断顺序为：branch->path；
+			 
+		   h、grep -- is readme.txt 与 grep -- 'is a' readme.txt ：1、单个词可省略引号，多个不可省；
+
+                                                         2、只能在当前路径下存在这个文件；
+														 
+	          git grep is：
+	
+	          git grep -n is：
+	
+	          git grep -c is：
+	
+	          git grep --name-only is：
+	
+	          git grep is b186d28：
+	
+	          git grep is two_chars：
+	
+	          git grep ' is ' two_chars：
+			  
+		   i、' -- '详解：1、what：用来标记可选命令选项的结束、用 -- 去隔离开“树”与“路径”的bash内置命令（即在它后面的带 -- 的字符串，不被当做是一个命令选项），也叫double dash；
+
+                          2、how：git checkout -- test.txt，使用 ；
+				
+				          3、extend：a、grep -- 'is a' readme.txt；
+		   		   
+		  
+六、删除文件
+1、extend：a、Linux上删除：1、在文件管理器中删除；
+
+                           2、rm test1.txt；
+						   
+		   b、其他场景同撤销修改；
+		   
+		   c、作业：误删了test1.txt并commit了，如何找回test1.txt；a、git reset HEAD^；
+		   
+		                                                          b、git checkout filename；
+						   
+2、how：a、git rm test1.txt；== 1、rm test1.txt；
+
+                                2、git add test1.txt；
+
+        b、git commit -m'remove test1.txt'；
+											
+		
+		
+		

@@ -1,0 +1,23 @@
+1、sudo apt-get install git
+   sudo apt-get install git-core
+2、git config --global user.name'my name'
+   git config --global user.email'my email'
+3、git
+   python
+   help(list)
+   java
+4、ls -ah
+5、git log --pretty=oneline
+6、git reset --hard HEAD~10
+7、git diff HEAD --readme.txt
+8、git checkout -- readme.txt：2个作用
+9、git reset HEAD readme.txt：1个作用
+10、ssh-keygen -t rsa -C'your email'
+11、git remote add orgin git@github.com:打通
+12、git push -u origin master
+13、git push origin master
+14、git clone git@github.com:
+15、find .
+    find /home -name '*.txt'
+	find /home -iname '*.txt'
+	finf . -name '*.txt'

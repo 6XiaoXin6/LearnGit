@@ -1,0 +1,50 @@
+1、how：a、选择一个合适的地方，创建一个空目录：mkdir learngit；
+
+        b、cd learngit；
+		
+		c、git init；
+		
+		e、add：1、git add readme.txt；
+		
+		        2、git add .；不包括deleted files
+				
+				3、git add *；不包括deleted files
+				
+				4、git add -u；不包括untracked files
+				
+				5、git add -A；添加所有改动
+		
+		f、commit：1、git commit -m'wrote a readme file'；可一次性提交多个文件
+		
+		           2、git commit -a -m'description'；（相当于先add后commit，但untrack files无效）
+				   
+				   2、git commit -am'description'；（相当于先add后commit，但untrack files无效）
+		
+2、extend：a、Windows请确保目录名不包含中文；
+
+           b、ls -ah、pwd
+		   
+		   c、也不一定必须在空目录下创建Git仓库，选择一个已经有东西的目录也是可以的；
+		   
+		   d、所有的版本控制系统，其实只能跟踪文本文件的详细改动，比如TXT文件、网页、所有的程序代码等，不能跟踪二进制文件的详细改动（大小）；
+		   
+		   e、UTF-8编码，所有语言使用同一种编码，既没有冲突，又被所有平台所支持；
+		   
+		   f、千万不要使用Windows自带的记事本编辑任何文本文件；？解：在文件开头添加一个16进制字符
+		   
+		   g、创建文本文件的两种方法：方法一：vi filename.txt、i、：wq；
+		   
+		                              方法二：vim filename1.txt；
+									  
+									  方法三：touch filename.txt；
+								
+		   h、Unix的哲学是“没有消息就是好消息”；
+			
+		   i、版本库=仓库=repository=lerangit；（错误的）正：.git=版本库=仓库=repository、lerangit=工作区=Working Directory；
+			
+		   j、Linux：一切皆文件；
+		   
+		   k、vi的三种模式：i、：、按esc；
+		   
+									  
+									  
